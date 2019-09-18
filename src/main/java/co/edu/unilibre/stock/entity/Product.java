@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "products")
@@ -28,6 +29,9 @@ public class Product implements Serializable{
 	@Column(name = "creation_date")
 	@Temporal(TemporalType.DATE)
 	private Date createDate;
+	
+	@Transient
+	private Long port;
 
 	public Long getId() {
 		return id;
@@ -59,6 +63,14 @@ public class Product implements Serializable{
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+
+	public Long getPort() {
+		return port;
+	}
+
+	public void setPort(Long port) {
+		this.port = port;
 	}
 	
 	
